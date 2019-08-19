@@ -62,7 +62,7 @@ export async function getRemoteSchema(
       body: JSON.stringify({ query: introspectionQuery }),
     }).then(res => res.json())
 
-    if (errors) {
+    if (errors && errors.length > 0) {
       return { status: 'err', message: JSON.stringify(errors, null, 2) }
     }
 
